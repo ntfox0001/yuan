@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="mscorlib">
+    <namespace fullname="System" preserve="all" />
+    <namespace fullname="System.IO" preserve="all"/>
+    <namespace fullname="System.Net.Sockets" preserve="all"/>
+    <namespace fullname="System.Net" preserve="all"/>
+    <namespace fullname="System.Text" preserve="all"/>
+  </assembly>
+  <assembly fullname="System.Xml">
+    <type fullname="System.Xml.XmlDocument" preserve="all"/>
+    <type fullname="System.Xml.XmlNode" preserve="all"/>
+    <type fullname="System.Xml.XmlNodeList" preserve="all"/>
+    <type fullname="System.Xml.XmlElement" preserve="all"/>
+    <type fullname="System.Xml.XmlNodeList" preserve="all"/>
+  </assembly>
+  <assembly fullname="UnityEngine" preserve="all" />
+  <assembly fullname="Unity.Subsystem.Registration" preserve="all"/>
+  <assembly fullname="Unity.XR.ARFoundation" preserve="all"/>
+  <assembly fullname="Unity.XR.ARKit" preserve="all"/>
+  <assembly fullname="Unity.XR.ARKit.FaceTracking" preserve="all"/>
+  <assembly fullname="Unity.XR.ARSubsystems" preserve="all"/>
+</linker>

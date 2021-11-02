@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using Boo.Lang;
 
 public class FindReferences
 {
@@ -19,7 +18,7 @@ public class FindReferences
         if (!string.IsNullOrEmpty(path))
         {
             string guid = AssetDatabase.AssetPathToGUID(path);
-            List withoutExtensions = new List() { ".prefab", ".unity", ".mat", ".asset" };
+            List<string> withoutExtensions = new List<string>() { ".prefab", ".unity", ".mat", ".asset" };
             string[] files = Directory.GetFiles(Application.dataPath, "*.*", SearchOption.AllDirectories)
                 .Where(s => withoutExtensions.Contains(Path.GetExtension(s).ToLower())).ToArray();
             int startIndex = 0;

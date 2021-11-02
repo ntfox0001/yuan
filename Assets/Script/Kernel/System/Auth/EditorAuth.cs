@@ -27,8 +27,6 @@ public class EditorAuth : AuthBase
     IEnumerator DelayInitial()
     {
         yield return new WaitForSeconds(DelayTime);
-        //mIsInitialFinished = true;
-        //mIsInitialSuccessed = true;
         mInitial.SetFinish(true);
     }
     public override CustomYieldInstruction Login()
@@ -39,8 +37,6 @@ public class EditorAuth : AuthBase
     IEnumerator DelayLogin()
     {
         yield return new WaitForSeconds(DelayTime);
-        //mIsLoginFinished = true;
-        //mIsLoginSuccessed = true;
         mLogin.SetFinish(true);
     }
     public override void SetLoginType(string type)
@@ -91,8 +87,6 @@ public class EditorAuth : AuthBase
     IEnumerator DelayPayInit()
     {
         yield return new WaitForSeconds(DelayTime);
-        //mIsPayInitFinished = true;
-        //mIsPayInitSuccessed = true;
         mPayInitial.SetFinish(true);
     }
     public override void Buy(string productId, System.Action<string> successFunc, System.Action<AuthError> failFunc)
@@ -202,8 +196,6 @@ public class EditorAuth : AuthBase
     IEnumerator DelayBindAccount()
     {
         yield return null;
-        //mIsBindAccountFinished = true;
-        //mIsBindAccountSuccessed = true;
         mBindAccount.SetFinish(true);
     }
     public override CustomYieldInstruction Logout()
@@ -215,8 +207,6 @@ public class EditorAuth : AuthBase
     IEnumerator DelayLogout()
     {
         yield return null;
-        //mIsLogoutFinished = true;
-        //mIsLogoutSuccessed = true;
         mLogout.SetFinish(true);
     }
 }

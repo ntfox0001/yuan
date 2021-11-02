@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Boo.Lang.Runtime;
 using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
+
 
 namespace Assets.Editor.Tests.Util
 {
@@ -16,7 +14,7 @@ namespace Assets.Editor.Tests.Util
         /// </summary>
         /// <param name="testCodeBlock">The test code</param>
         /// <param name="listOfPrefabs">List of paths to assets created for the test</param>
-        public static void ExecuteCodeAndCleanupAssets(RuntimeServices.CodeBlock testCodeBlock, List<string> listOfPrefabs)
+        public static void ExecuteCodeAndCleanupAssets(Action testCodeBlock, List<string> listOfPrefabs)
         {
             try
             {
@@ -31,7 +29,7 @@ namespace Assets.Editor.Tests.Util
                 Assert.Fail("Exception thrown when executing test" + ex.Message);
             }
             finally
-            { 
+            {
                 DestroyPrefabsAndRemoveUnusedBundleNames(listOfPrefabs);
             }
         }
@@ -41,10 +39,10 @@ namespace Assets.Editor.Tests.Util
             string path = "Assets/" + UnityEngine.Random.Range(0, 10000) + ".prefab";
             GameObject instance = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            GameObject go = PrefabUtility.CreatePrefab(path, instance);
+            GameObject go = PrefabUtility.SaveAsPrefabAsset(instance, path);
             instance.name = name;
             AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant(bundleName, variantName);
-            PrefabUtility.MergeAllPrefabInstances(go);
+
             return path;
         }
 

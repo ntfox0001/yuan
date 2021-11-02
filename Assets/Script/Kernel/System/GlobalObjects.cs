@@ -148,13 +148,7 @@ public class GlobalObjects : Singleton<GlobalObjects>
 
         yield return null;
 
-
-#if UNITY_IOS
-        mPersistent = new XmlPersistent(PersistName);
-#elif UNITY_ANDROID
-        //mPersistent = new XmlPersistent(PersistName);
         mPersistent = new XmlPersistentEncrypt(PersistName, GetIndieNiNiName());
-#endif
 
 
         PlatformUtil = gameObject.AddComponent<PlatformUtil>();
